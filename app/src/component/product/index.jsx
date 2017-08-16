@@ -13,7 +13,10 @@ class component extends React.PureComponent {
   columns = {
     Code: 'code',
     Name: 'name',
-    QuantityOnHand: 'quantity',
+    QuantityOnHand: {
+      label: 'quantity',
+      custom: ({QuantityOnHand}) => Math.round(QuantityOnHand)
+    },
     purchase: {
       label: 'purchase',
       custom: (row) => <FlatButton primary={true} label='purchase' onClick={e => this.onPurchase(row)} />

@@ -1,5 +1,4 @@
-import 'babel-polyfill'
-import { sharedServices, gpapi, rest, sso, socket, x509 } from '@gp-technical/stack-redux-api'
+import { sharedServices, rest, socket } from '@gp-technical/stack-pack-api'
 import localServices from './service'
 import express from './express'
 import winston from 'winston'

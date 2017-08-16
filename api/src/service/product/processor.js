@@ -1,4 +1,4 @@
-import { makeProcessor } from '@gp-technical/stack-redux-api'
+import { makeProcessor } from '@gp-technical/stack-pack-api'
 import xerify from './xerify'
 
 const processor = async (action) => {

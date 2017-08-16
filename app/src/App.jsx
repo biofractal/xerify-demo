@@ -14,7 +14,7 @@ class component extends React.PureComponent {
       <components.Loader show={show} branding={branding}>
         <MuiThemeProvider muiTheme={muiTheme}>
           <div>
-            <components.App.Bar title='xerify-demo' color={muiTheme.appBar.color} style={styles} />
+            <components.App title='xerify-demo' color={muiTheme.appBar.color} style={styles} />
             <Grid>
               <Row className={styles.main}>
                 <Col
