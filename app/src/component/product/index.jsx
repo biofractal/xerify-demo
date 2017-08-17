@@ -7,7 +7,7 @@ import { actionHub, services, components } from '../../loader'
 class component extends React.PureComponent {
 
   onPurchase = (row) => {
-    this.props.purchase(row.ItemID)
+    this.props.purchase(row.ItemID, 1)
   }
 
   columns = {
@@ -19,7 +19,11 @@ class component extends React.PureComponent {
     },
     purchase: {
       label: 'purchase',
-      custom: (row) => <FlatButton primary={true} label='purchase' onClick={e => this.onPurchase(row)} />
+      custom: (row) => <FlatButton
+                         primary={true}
+                         label='purchase'
+                         onClick={e => this.onPurchase(row)}
+                         disabled={Math.round(row.QuantityOnHand) === 0} />
     }
   }
 
@@ -41,7 +45,7 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
-  purchase: (itemId) => dispatch(actionHub.PRODUCT_PURCHASE({itemId}))
+  purchase: (itemId, quantity) => dispatch(actionHub.PRODUCT_PURCHASE({itemId, quantity}))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(component)
